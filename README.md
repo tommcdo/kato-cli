@@ -1,6 +1,6 @@
 # Kato::Cli
 
-TODO: Write a gem description
+Post to a [kato.im](https://kato.im) room from the command line.
 
 ## Installation
 
@@ -18,7 +18,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    kato [-u|--user USERNAME] [-f|--renderer text|markdown|code] [-r|--room ROOM]
+
+Message is read from `stdin`.
 
 ## Contributing
 
