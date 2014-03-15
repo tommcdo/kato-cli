@@ -32,7 +32,7 @@ room called `meetings` with room id `3d809831aa8481177dcce`.
 This allows you to specify the room by its nickname when invoking the `kato`
 command:
 
-	kato --room dev
+	$ kato --room dev
 
 You can also configure a default room to send messages to as well as a default
 display name.
