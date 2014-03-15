@@ -8,8 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Kato::Cli::VERSION
   spec.authors       = ["Tom McDonald"]
   spec.email         = ["tommcdo@gmail.com"]
-  spec.summary       = %q{CLI client for posting to kato.im rooms}
-  spec.homepage      = ""
+  spec.summary       = %q{Kato.im CLI tool}
+  spec.description   = %q{A simple command line tool for posting messages in kato.im chat rooms}
+  spec.homepage      = "http://tommcdo.com"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
