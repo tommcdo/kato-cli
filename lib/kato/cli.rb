@@ -1,7 +1,15 @@
-require "kato/cli/version"
+require 'kato/cli/version'
+require 'kato'
 
 module Kato
   module Cli
-    # Your code goes here...
+    def Cli.post(user, message, room, options)
+      if options[:renderer] == :code
+        options[:renderer] = :markdown
+        message = "```\n#{message}\n```"
+      end
+      room = Kato::Room.new(room)
+      room.post(user, message, options)
+    end
   end
 end

@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+require 'kato/cli'
+require 'optparse'
+require 'yaml'
+
+user = 'kato-cli'
+options = {
+  :renderer => :text,
+}
+
+config_file = File.expand_path('~/.kato.yml')
+unless File.readable?(config_file)
+  puts "Please create a ~/.kato.yml configuration file."
+  exit
+end
+config = YAML.load_file(config_file)
+if config['user']
+  user = config['user']
+end
+if config['room']
+  room = config['room-list'][config['room']]
+end
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: kato [options]"
+  opts.on('-u', '--user NAME', 'Username') { |v| user = v }
+  opts.on('-r', '--room NAME', 'Room') { |v| room = config['room-list'][v] }
+  opts.on('-f', '--renderer [TYPE]', [:text, :markdown, :code], 'Renderer (text, markdown, code)') { |v| options[:renderer] = v }
+end.parse!
+
+Kato::Cli.post(user, STDIN.read, room, options)
